@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Feet to cm</title>
+    <link href="Assignment_UnitConvertor.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <form action="" id="calculator">
+        <h1>Unit Converter</h1>
+        <div class="row">
+            <label for="feet">Feet</label>
+            <input id="feet">
+            <br>
+        </div>
+        <div class="row">
+            <input id="button" type="submit" value="Convert to cm">
+        </div>
+        <div id="results"></div>
+    </form>
+    <script>
+        var form = document.querySelector('form');
+        form.addEventListener('submit', function (e) {
+            //grab content form input
+            var feet = document.querySelector('#feet');
+            var results = document.querySelector('#results');
+            e.preventDefault();
+            feet = parseInt(feet.value);
+            if (isNaN(feet)) {
+                results.textContent = "Please enter a validnumber!";
+            }
+            else if (feet <= 0) {
+                results.textContent = "Please enter a feetvalue > 0";
+            }
+            else {
+                var converted_value = feet * 30.48;
+                results.textContent = `${converted_value}cm`;
+                document.querySelector('#feet').value = '';
+                document.querySelector('#inches').value = '';
+            }
+        })
+
+    </script>
+</body>
+
+</html>
